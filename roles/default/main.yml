@@ -1,0 +1,33 @@
+---
+# Ansible packages
+ansible_packages:
+  - MySQL-python
+  - git-core
+  - openssl
+  - ansible
+
+# Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
+docker_edition: 'ce'
+docker_package: "docker-{{ docker_edition }}"
+docker_package_state: present
+
+# Service options.
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+
+# Docker Compose options.
+docker_install_compose: true
+docker_compose_version: "1.22.0"
+docker_compose_path: /usr/local/bin/docker-compose
+
+
+# Used only for RedHat/CentOS/Fedora.
+docker_yum_repo_url: https://download.docker.com/linux/centos/docker-{{ docker_edition }}.repo
+docker_yum_repo_enable_edge: 0
+docker_yum_repo_enable_test: 0
+
+# Main user
+admin_users:
+  - name: ladis
+    pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCWR3Gy5/7g/iNP5O9ZYMix+qXxRYvv42D5lBrjUoDTmVAGzlFeCg0Js1ttvUjMUQXxPzbbh6xq73XgjvxpJySrWCm9NlM5QxAktvVDxRqInFaIgEzFxUDTsJ+x5w9vdaYDxEtVUtkfuTOWex3AfjG/NozAJmitK7tKxKbrq8sdykvdy+yCdr7xe+QCNovrz5Lh7uRLAOFwGh4PGm40JepAKNsRFMOVYiX4zW47bWsYrFvV84VUYgHCfLWYM0PfDXKNm1Dg64YLyBoHXqr8dFk2/N77AJBwILq0p+9mBFWRnDW2T9cmtuOzlg1T4FPXBTajqF0gPNxCWsjug+mhJV0l ladis"
