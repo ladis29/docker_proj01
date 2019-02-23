@@ -1,10 +1,14 @@
 ---
-# Ansible packages
-ansible_packages:
+# Default packages
+default_packages:
   - MySQL-python
   - git-core
-  - openssl
+  - openssh
+  - openssh-server
   - ansible
+  - vim
+  - dnf
+  - wget
 
 # Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
 docker_edition: 'ce'
@@ -21,13 +25,16 @@ docker_install_compose: true
 docker_compose_version: "1.22.0"
 docker_compose_path: /usr/local/bin/docker-compose
 
-
 # Used only for RedHat/CentOS/Fedora.
 docker_yum_repo_url: https://download.docker.com/linux/centos/docker-{{ docker_edition }}.repo
 docker_yum_repo_enable_edge: 0
 docker_yum_repo_enable_test: 0
 
+# Docker Swarm options
+docker_swarm_manager_ip: 192.168.1.13
+docker_swarm_manager_port: 2377
+
 # Main user
 admin_users:
   - name: ladis
-    pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCWR3Gy5/7g/iNP5O9ZYMix+qXxRYvv42D5lBrjUoDTmVAGzlFeCg0Js1ttvUjMUQXxPzbbh6xq73XgjvxpJySrWCm9NlM5QxAktvVDxRqInFaIgEzFxUDTsJ+x5w9vdaYDxEtVUtkfuTOWex3AfjG/NozAJmitK7tKxKbrq8sdykvdy+yCdr7xe+QCNovrz5Lh7uRLAOFwGh4PGm40JepAKNsRFMOVYiX4zW47bWsYrFvV84VUYgHCfLWYM0PfDXKNm1Dg64YLyBoHXqr8dFk2/N77AJBwILq0p+9mBFWRnDW2T9cmtuOzlg1T4FPXBTajqF0gPNxCWsjug+mhJV0l ladis"
+    pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDC2GxOayQYLkmCtIh8FcjW9rXiiYeJWIazMCMM1FEa/8QAedh6RL9tq4GHMxilO982EL9TKdxBNvdP8AVaLT858zhvTYLzDYZacKKvhA1IR4F8aku/I9VT5BI/Sph0rm2dmyQdaI1m2JxXbpZvUCWp8NYy66eT1Qy/HzX8pElUTBD81LRWawLEiclC9lNMNnV/+iGn+3V66MAH++IMzSQyWN71Vh1LohB1RWF6RyNTj8aVCLH0a5bV1YulI8LXHsU0kl5uGAcvn58JZyAB8gmNbdBdos+F/TCUChIpwFX4M90sQj8+UcH16iMbDAdrZcLtsbLcMIOsaqW/nSvf8CGf ladis@lau.note"

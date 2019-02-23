@@ -1,0 +1,3 @@
+---
+  - name: Add nodes
+    raw: docker swarm join --token {{ SWMTKNWK }} {{ docker_swarm_manager_ip }}:{{ docker_swarm_manager_port }}

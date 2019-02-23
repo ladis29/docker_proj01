@@ -4,9 +4,9 @@
   raw: test -e /usr/bin/python || (yum -y update && yum install -y python-minimal)
   ignore_errors: True
 
-- name: Installing  Ansible Packages
+- name: Installing  Default Packages
   yum:
-    name: '{{ ansible_packages }}'
+    name: '{{ default_packages }}'
     state: latest
     update_cache: yes
 

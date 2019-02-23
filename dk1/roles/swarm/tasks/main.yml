@@ -1,0 +1,4 @@
+---
+
+ - name: Create the cluster on the server
+   raw: docker swarm init --advertise-addr {{ docker_swarm_manager_ip }}:{{ docker_swarm_manager_port }}

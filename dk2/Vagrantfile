@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "geerlingguy/ubuntu1604"
+  config.ssh.insert_key = false
+
+  config.vm.provider :virtualbox do |v|
+    v.name = "dk2"
+    v.memory = 1024
+    v.cpus = 2
+  end
+
+  config.vm.hostname = "dk2"
+  config.vm.network :private_network, ip: "192.168.1.14"
+
+  config.vm.define :dk2 do |dk2|
+  end
+
+  # Ansible provisioner.
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.playbook = "playbook.yml"
+    ansible.become = true
+  end
+
+end
