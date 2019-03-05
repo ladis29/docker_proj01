@@ -26,7 +26,7 @@ docker_compose_path: /usr/local/bin/docker-compose
 # Docker Swarm options
 docker_swarm_manager_ip: "192.168.1.13"
 docker_swarm_manager_port: "2377"
-SWMTKNWK: SWMTKN-1-3b7eulz8niqgeczaefzstjw51p29ih4wxmq343slem6r3o1c41-95voahtjsjca9o95ju9mxy020 
+SWMTKNWK: SWMTKN-1-1djtup5x8k3eock991f53bwhjo7yuprxyfr58tsxxwngqa4qfl-9eb3ho9go5g8argyhimsxfikw 
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'edge' if needed.
 docker_apt_arch: amd64

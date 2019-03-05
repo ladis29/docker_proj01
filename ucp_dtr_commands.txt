@@ -1,0 +1,15 @@
+docker container run --rm -it \
+--name ucp \
+-v /var/run/docker.sock:/var/run/docker.sock \
+docker/ucp:3.0.0 install \
+--host-address 192.168.1.13 \
+--admin-username admin --admin-password admin123 \
+--san ucp.example.com \
+--force-minimums
+
+
+docker run -it --rm docker/dtr install \
+  --ucp-node dk3 \
+  --ucp-username admin \
+  --ucp-url https://192.168.1.13 \
+  --ucp-insecure-tls

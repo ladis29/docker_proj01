@@ -13,6 +13,7 @@
   - packages
   - user
   - swarm
+  - ucp
 
   handlers:
   - include: roles/handlers/tasks/main.yml
